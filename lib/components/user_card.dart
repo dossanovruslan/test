@@ -4,9 +4,11 @@ import 'package:test_app/screens/details_screen.dart';
 
 class UserCard extends StatelessWidget {
   final User user;
+  final int index;
   const UserCard({
     super.key,
     required this.user,
+    required this.index,
   });
 
   @override
@@ -24,7 +26,7 @@ class UserCard extends StatelessWidget {
           color: Colors.blue.shade100,
           borderRadius: const BorderRadius.all(Radius.circular(12)),
         ),
-        child: Text('${user.username} ${user.name}'),
+        child: Text('${index + 1}) ${user.username} ${user.name}'),
       ),
     );
   }

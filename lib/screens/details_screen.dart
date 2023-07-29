@@ -1,12 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:test_app/components/album_card.dart';
 import 'package:test_app/components/post_card.dart';
 
-import 'package:test_app/models/post.dart';
 import 'package:test_app/models/user.dart';
-import 'package:test_app/screens/all_posts.dart';
 
 class DetailsScreen extends StatelessWidget {
   final User user;

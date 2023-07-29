@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/models/post.dart';
+import 'package:test_app/screens/post_comments_screen.dart';
 
 class AllPostsScreen extends StatelessWidget {
   final List<Post> posts;
@@ -17,10 +18,17 @@ class AllPostsScreen extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                posts[index].title,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => CommentsScreen(post: posts[index]),
+                  ),
+                ),
+                child: Text(
+                  "${index + 1})  ${posts[index].title}",
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.w500),
+                ),
               ),
               const SizedBox(height: 4),
               Text(

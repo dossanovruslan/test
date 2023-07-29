@@ -65,7 +65,7 @@ class _AlbumCardState extends State<AlbumCard> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            snapshot.data![index].title,
+                            "${index + 1}) ${snapshot.data![index].title}",
                             style: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500),
                           ),

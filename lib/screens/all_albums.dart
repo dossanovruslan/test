@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/models/album.dart';
-import 'package:test_app/models/post.dart';
+import 'package:test_app/screens/detail_album_screen.dart';
 
 class AllAlbumsScreen extends StatelessWidget {
   final List<Album> albums;
@@ -18,10 +18,21 @@ class AllAlbumsScreen extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                albums[index].title,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => DetailAlbumScreen(
+                      album: albums[index],
+                    ),
+                  ),
+                ),
+                child: Text(
+                  "${index + 1}) ${albums[index].title}",
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
               const SizedBox(height: 16),
             ],

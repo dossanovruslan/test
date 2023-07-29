@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         future: _future,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator.adaptive();
+            return const Center(child: CircularProgressIndicator.adaptive());
           }
 
           if (snapshot.connectionState == ConnectionState.done &&
@@ -45,7 +45,10 @@ class _HomePageState extends State<HomePage> {
               child: ListView.builder(
                 itemCount: snapshot.data?.length,
                 itemBuilder: (context, index) {
-                  return UserCard(user: snapshot.data![index]);
+                  return UserCard(
+                    user: snapshot.data![index],
+                    index: index,
+                  );
                 },
               ),
             );
